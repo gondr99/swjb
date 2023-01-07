@@ -2,8 +2,10 @@
 session_start();
 
 define("__ROOT", dirname( __DIR__ ));
-define("__VIEW", __ROOT . "/Views");
+const __VIEW = __ROOT . "/Views";
+const __DATA = __ROOT . "/data";
 
+require_once (__ROOT . "/functions.php");
 require_once(__ROOT . "/autoload.php");
 require_once(__ROOT . "/web.php");
 

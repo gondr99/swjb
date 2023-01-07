@@ -11,3 +11,11 @@ Route::POST("/register", "UserController@registerProcess");
 Route::GET("/login", "UserController@loginPage");
 Route::POST("/login", "UserController@loginProcess");
 
+if( user() ){
+    //파일처리 관련 라우터
+    Route::GET("/upload", "FileController@uploadPage");
+    Route::POST("/upload", "FileController@uploadProcess");
+
+    Route::GET("/list", "FileController@listPage");
+}
+
