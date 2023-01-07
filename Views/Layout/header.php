@@ -12,6 +12,7 @@
         <div class="col-4 d-flex justify-content-end">
             <a href="/upload" class="me-2 btn btn-outline-success">업로드</a>
             <a href="/list" class="btn btn-outline-primary">리스트</a>
+            <a href="/logout" class="btn btn-outline-danger">로그아웃</a>
         </div>
     <?php endif; ?>
 </div>

@@ -17,5 +17,7 @@ if( user() ){
     Route::POST("/upload", "FileController@uploadProcess");
 
     Route::GET("/list", "FileController@listPage");
+
+    Route::GET("/download", "FileController@download");
 }
 
