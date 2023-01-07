@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 define("__ROOT", dirname( __DIR__ ));
 define("__VIEW", __ROOT . "/Views");

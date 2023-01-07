@@ -4,45 +4,45 @@ namespace Gondr\Core;
 
 class DB
 {
-    private $DB = null;
+    private static $DB = null;
 
-    public function getConnection()
+    public static function getConnection()
     {
         $host = "localhost";
-        $dbname = "swjb";
+        $dbname = "file_mgr";
         $charset = "utf8mb4";
         $user = "root";
         $pass = "";
 
-        if (is_null($this->DB))
+        if (is_null(self::$DB))
         {
             $option = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ];
 
-            $this->DB = new \PDO(
+            self::$DB = new \PDO(
                 "mysql:host={$host};dbname={$dbname};charset={$charset};",
                 $user, $pass, $option
             );
         }
 
-        return $this->DB;
+        return self::$DB;
     }
 
-    public function execute($sql, $data = [])
+    public static function execute($sql, $data = [])
     {
-        $q = $this->getConnection()->prepare($sql);
+        $q = self::getConnection()->prepare($sql);
         return $q->execute($data);
     }
 
-    public function fetch($sql, $data = [])
+    public static function fetch($sql, $data = [])
     {
-        $q = $this->getConnection()->prepare($sql);
+        $q = self::getConnection()->prepare($sql);
         $q->execute($data);
         return $q->fetch();
     }
 
-    public function fetchAll($sql, $data = [])
+    public static function fetchAll($sql, $data = [])
     {
-        $q = $this->getConnection()->prepare($sql);
+        $q = self::getConnection()->prepare($sql);
         $q->execute($data);
         return $q->fetchAll();
     }
